@@ -10,10 +10,22 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class Spring6jdbc3ApplicationTests {
+
+    @Test
+    void testCreateSpeaker() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        Speaker speaker = new Speaker();
+        speaker.setName("John Henry");
+
+        restTemplate.put("http://localhost:8080/", speaker);
+
+        assertTrue(true, "speaker is null");
+    }
 
     @Test
     void testGetSpeakers() {

@@ -9,7 +9,7 @@ import java.util.List;
 @Service("speakerService")
 public class SpeakerServiceImpl implements SpeakerService {
 
-    private SpeakerRepository speakerRepository;
+    private final SpeakerRepository speakerRepository;
 
     public SpeakerServiceImpl(SpeakerRepository speakerRepository) {
         this.speakerRepository = speakerRepository;
@@ -18,5 +18,10 @@ public class SpeakerServiceImpl implements SpeakerService {
     @Override
     public List<Speaker> findAll() {
         return speakerRepository.findAll();
+    }
+
+    @Override
+    public Speaker create(Speaker speaker) {
+        return speakerRepository.create(speaker);
     }
 }
